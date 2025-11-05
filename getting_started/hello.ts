@@ -227,3 +227,112 @@ function merge<T, U> (a: T, b: U ): T & U {
 }
 
 console.log(merge({name: "Nick"}, {age: 31}));
+
+type Wrapped<T> = { value : T};
+
+const wrapper: Wrapped<string> = {value: "Hero"};
+
+console.log(wrapper);
+console.log(wrapper.value);
+
+interface Food {
+  x: string,
+  y: string,
+};
+
+let foodName: Partial<Food> = {};
+foodName.x = "Pasta";
+console.log(`x is : ${foodName.x}`)
+
+interface Bike {
+  model: string,
+  year: number,
+  cost?: number,
+}
+
+let bikeName: Required<Bike> = {
+  model: "Raider",
+  year: 2021,
+  cost: 120000,
+}
+
+console.log(`BIke name is Yamaha ${bikeName.model}`)
+
+
+const village: Record<string, number> = {
+  "Chamoli": 2011,
+  "Dhari": 2019,
+  "Lee": 2001,
+}
+
+console.log(`Get me Dhari: ${village.Dhari}`)
+
+interface Person1 {
+  name: string,
+  age: number,
+  location?: string,
+}
+
+const del: Omit<Person1, "age" | "location"> = {
+  name: "Lalit",
+}
+
+console.log(`here is my name: ${del.name}`)
+
+const pic: Pick<Person1, "age"> = {
+  age: 12,
+}
+
+console.log(`my age is: ${pic.age}`)
+
+type returnMe = () => {age: number, name: string};
+
+const p1:ReturnType<returnMe> = {
+  age: 21,
+  name: "Lucky",
+}
+
+console.log(`${p1.age}`)
+
+type Point1 = (p: {x: number, y: number,}) => void;
+
+const p2: Parameters<Point1>[0] = {
+  x: 23,
+  y: 45,
+}
+
+console.log("p2: ", p2)
+
+
+interface Cars {
+  name: string,
+  model: string,
+}
+
+function carToGet (car: Cars, value1: keyof Cars, value: keyof Cars) {
+  console.log(`The ${value1} of my car is ${car[value1]} and its ${value} is ${car[value]}`);
+
+};
+
+let car2 = {
+  name: "Honda",
+  model: "City",
+}
+
+carToGet(car2, "name", "model");
+
+
+type NumberIndexed = {[key: string]: string};
+type NumberKeys = keyof NumberIndexed;
+
+const xd:NumberKeys = "Hello";
+
+console.log(xd);
+
+type Hie = {[key: string]: unknown};
+
+function talk(property: keyof Hie, value: string): Hie {
+ return { [property] : value }
+}
+
+console.log(talk("GREETING", "Namaste"));

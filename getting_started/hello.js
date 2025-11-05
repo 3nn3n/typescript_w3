@@ -190,3 +190,56 @@ function merge(a, b) {
     return __assign(__assign({}, a), b);
 }
 console.log(merge({ name: "Nick" }, { age: 31 }));
+var wrapper = { value: "Hero" };
+console.log(wrapper);
+console.log(wrapper.value);
+;
+var foodName = {};
+foodName.x = "Pasta";
+console.log("x is : ".concat(foodName.x));
+var bikeName = {
+    model: "Raider",
+    year: 2021,
+    cost: 120000,
+};
+console.log("BIke name is Yamaha ".concat(bikeName.model));
+var village = {
+    "Chamoli": 2011,
+    "Dhari": 2019,
+    "Lee": 2001,
+};
+console.log("Get me Dhari: ".concat(village.Dhari));
+var del = {
+    name: "Lalit",
+};
+console.log("here is my name: ".concat(del.name));
+var pic = {
+    age: 12,
+};
+console.log("my age is: ".concat(pic.age));
+var p1 = {
+    age: 21,
+    name: "Lucky",
+};
+console.log("".concat(p1.age));
+var p2 = {
+    x: 23,
+    y: 45,
+};
+console.log("p2: ", p2);
+function carToGet(car, value1, value) {
+    console.log("The ".concat(value1, " of my car is ").concat(car[value1], " and its ").concat(value, " is ").concat(car[value]));
+}
+;
+var car2 = {
+    name: "Honda",
+    model: "City",
+};
+carToGet(car2, "name", "model");
+var xd = "Hello";
+console.log(xd);
+function talk(property, value) {
+    var _a;
+    return _a = {}, _a[property] = value, _a;
+}
+console.log(talk("GREETING", "Namaste"));
